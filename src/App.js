@@ -4,6 +4,7 @@ import Home from './Pages/Home';
 import { Router, Route } from 'react-router'
 import createBrowserHistory from 'history/createBrowserHistory'
 import NavigationBar from './Components/NavigationBar';
+import Constructing from './Pages/Constructing';
 
 class App extends Component {
     constructor(props){
@@ -32,10 +33,17 @@ class App extends Component {
                             <div className="row">
                                 {/*<div className="col-md-3">*/}
                                 {/*</div>*/}
-                                <div className="col-md-6 col-md-offset-3">
+                                <div>
                                     <Route exact path="/" component={Home}/>
                                     {/*<Route path="/about" component={About}/>*/}
-                                    {/*<Route path="/test" component={TestPage}/>*/}
+                                    <Route path="/1" component={Constructing}/>
+                                    <Route path="/2" component={Constructing}/>
+                                    <Route path="/3" component={Constructing}/>
+                                    <Route path="/4" component={Constructing}/>
+                                    <Route path="/5" component={Constructing}/>
+                                    <Route path="/6" component={Constructing}/>
+                                    <Route path="/7" component={Constructing}/>
+
                                 </div>
                                 {/*<div className="col-md-3">*/}
                                 {/*</div>*/}
