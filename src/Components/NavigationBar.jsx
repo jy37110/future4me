@@ -46,7 +46,7 @@ class NavigationBar extends Component{
 
         return(
             <div>
-                <Navbar inverse className="NavBar">
+                <Navbar inverse className="NavBar" style={{marginBottom:0}}>
                     <Navbar.Header>
                         <Navbar.Brand>
                             <a className="NavItem" href="/">Home Logo</a>

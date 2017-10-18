@@ -23,7 +23,7 @@ export default class EachItemOfAboutNZ extends Component{
         if (this.state.hover){
             return(
                 <Col xs={6} md={3}>
-                    <span style={{width:250,height:250,padding:0,margin:0,display:'block'}}>
+                    <span style={{width:250,height:250,padding:0,margin:'0 auto',display:'block'}}>
                         <img src={this.props.frontUrl} alt="250X250"/>
                     </span>
                 </Col>
@@ -31,7 +31,7 @@ export default class EachItemOfAboutNZ extends Component{
         } else {
             return(
                 <Col xs={6} md={3}>
-                    <span style={{width:250,height:250,padding:0,margin:0,display:'block'}}>
+                    <span style={{width:250,height:250,padding:0,margin:'0 auto',display:'block'}}>
                         <img src={this.props.backUrl} alt="250X250"/>
                     </span>
                 </Col>

@@ -35,7 +35,7 @@ export default class AboutNZ extends Component{
 
     render(){
         return(
-            <div className='AboutNZContainer' style={{display:'flex',justifyContent:'center'}}>
+            <div className='AboutNZContainer' style={{display:'flex',justifyContent:'center',backgroundColor:'rgb(240,240,240)',paddingBottom:30}}>
                 <Grid>
                     <Row>
                         <h2 style={{marginBottom:20}}>关于新西兰</h2>
