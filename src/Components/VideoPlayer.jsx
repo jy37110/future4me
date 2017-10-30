@@ -11,7 +11,7 @@ export default class VideoPlayer extends Component{
                     </Row>
                     <Row>
                         <div className="embed-responsive embed-responsive-16by9">
-                            <iframe className="embed-responsive-item" src="https://www.youtube.com/embed/K4wEI5zhHB0"/>
+                            <iframe title='1' className="embed-responsive-item" src="https://www.youtube.com/embed/K4wEI5zhHB0"/>
                         </div>
                     </Row>
                 </Grid>
