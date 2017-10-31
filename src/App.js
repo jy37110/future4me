@@ -5,6 +5,8 @@ import { Router, Route } from 'react-router'
 import createBrowserHistory from 'history/createBrowserHistory'
 import NavigationBar from './Components/NavigationBar';
 import Constructing from './Pages/Constructing';
+import Register from './Pages/Register';
+import Login from './Pages/Login';
 
 class App extends Component {
     constructor(props){
@@ -40,8 +42,8 @@ class App extends Component {
                                     <Route path="/2" component={Constructing}/>
                                     <Route path="/3" component={Constructing}/>
                                     <Route path="/4" component={Constructing}/>
-                                    <Route path="/5" component={Constructing}/>
-                                    <Route path="/6" component={Constructing}/>
+                                    <Route path="/5" component={Register}/>
+                                    <Route path="/6" component={Login}/>
                                     <Route path="/7" component={Constructing}/>
 
                                 </div>
