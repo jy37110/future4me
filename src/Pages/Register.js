@@ -122,7 +122,7 @@ export default class Register extends Component {
             cache: false,
             success: function(data){
                 if(data.success){
-                    window.location = "./";
+                    window.location = "./redirect";
                 } else {
                     this.setState({err:true,errMsg:data.msg})
                 }

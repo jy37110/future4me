@@ -7,6 +7,7 @@ import NavigationBar from './Components/NavigationBar';
 import Constructing from './Pages/Constructing';
 import Register from './Pages/Register';
 import Login from './Pages/Login';
+import RegisterSuccess from './Pages/RegisterSuccess';
 
 class App extends Component {
     constructor(props){
@@ -45,7 +46,7 @@ class App extends Component {
                                     <Route path="/5" component={Register}/>
                                     <Route path="/6" component={Login}/>
                                     <Route path="/7" component={Constructing}/>
-
+                                    <Route path="/redirect" component={RegisterSuccess}/>
                                 </div>
                                 {/*<div className="col-md-3">*/}
                                 {/*</div>*/}
