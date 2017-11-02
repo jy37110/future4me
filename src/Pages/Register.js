@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Grid, Row } from 'react-bootstrap';
 import $ from 'jquery';
 import Validator from '../Components/Validator';
-import passwordHash from 'password-hash';
+//import passwordHash from 'password-hash';
 
 export default class Register extends Component {
     constructor(props){
@@ -56,7 +56,8 @@ export default class Register extends Component {
 
     handleSubmit = () => {
         if(this.state.email && this.state.firstName && this.state.lastName && this.state.psd && this.state.psdRepeat) {
-            this.hashedPsd = passwordHash.generate(this.psd);
+            //this.hashedPsd = passwordHash.generate(this.psd);
+            this.hashedPsd = this.psd;
             this.ajax();
         }
         else {
@@ -122,7 +123,7 @@ export default class Register extends Component {
             cache: false,
             success: function(data){
                 if(data.success){
-                    window.location = "./redirect";
+                    window.location = "#/redirectRegister";
                 } else {
                     this.setState({err:true,errMsg:data.msg})
                 }

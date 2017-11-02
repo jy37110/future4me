@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Nav, Navbar, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+//import { Link } from 'react-router-dom'
 
 
 
@@ -14,7 +15,10 @@ class NavigationBar extends Component{
 
     navigate = (eventKey) => {
         this.setState({activeKey: eventKey});
-        window.location.replace(eventKey);
+        // window.location.replace('/' + eventKey);
+        window.location = "#/" + eventKey;
+        //alert(eventKey);
+
     };
 
     register = () => {
@@ -50,7 +54,7 @@ class NavigationBar extends Component{
                     <Navbar.Header>
                         <Navbar.Brand>
                             <a className="NavItem" href="/">Home Logo</a>
-                            {/*<Link to="/">*/}
+                            {/*<Link to="/login">*/}
                                 {/*<span className="NavItem">Home Logo</span>*/}
                             {/*</Link>*/}
                         </Navbar.Brand>
@@ -58,25 +62,25 @@ class NavigationBar extends Component{
                     </Navbar.Header>
                     <Navbar.Collapse>
                         <Nav activeKey={this.state.activeKey} onSelect={this.navigate}>
-                            <NavItem eventKey={1} href="#">
+                            <NavItem eventKey={1}>
                                 <span className="NavItem">Link1</span>
                             </NavItem>
-                            <NavItem eventKey={2} href="#">
+                            <NavItem eventKey={2}>
                                 <span className="NavItem">Link2</span>
                             </NavItem>
-                            <NavItem eventKey={3} href="#">
+                            <NavItem eventKey={3}>
                                 <span className="NavItem">Link3</span>
                             </NavItem>
-                            <NavItem eventKey={4} href="#">
+                            <NavItem eventKey={4}>
                                 <span className="NavItem">Link4</span>
                             </NavItem>
 
                         </Nav>
                         <Nav pullRight activeKey={this.state.activeKey} onSelect={this.navigate}>
-                            <NavItem eventKey={5} href="#">
+                            <NavItem eventKey={"register"} href="#">
                                 <span className="NavItem">注册</span>
                             </NavItem>
-                            <NavItem eventKey={6} href="#">
+                            <NavItem eventKey={"login"} href="#">
                                 <span className="NavItem">登陆</span>
                             </NavItem>
                             <NavDropdown eventKey={7} className="NavItem" title="联系我们" id="basic-nav-dropdown">

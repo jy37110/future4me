@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 import Home from './Pages/Home';
-import { Router, Route } from 'react-router'
-import createBrowserHistory from 'history/createBrowserHistory'
+import { HashRouter, Route } from 'react-router-dom'
+//import createBrowserHistory from 'history/createBrowserHistory'
+import createHashHistory from 'history/createHashHistory'
 import NavigationBar from './Components/NavigationBar';
 import Constructing from './Pages/Constructing';
 import Register from './Pages/Register';
 import Login from './Pages/Login';
 import RegisterSuccess from './Pages/RegisterSuccess';
+import LoginSuccess from "./Pages/LoginSuccess";
 
 class App extends Component {
     constructor(props){
@@ -30,7 +32,9 @@ class App extends Component {
         return (
             <div className="App">
                 <div>
-                    <Router history={createBrowserHistory()}>
+                    {/*<Router history={createBrowserHistory()}>*/}
+                    <HashRouter history={createHashHistory()}>
+
                         <div>
                             <NavigationBar userLoggedIn={this.state.login} test={this.test} loginStateHandler={this.onUserStateChange}/>
                             <div className="row">
@@ -43,16 +47,17 @@ class App extends Component {
                                     <Route path="/2" component={Constructing}/>
                                     <Route path="/3" component={Constructing}/>
                                     <Route path="/4" component={Constructing}/>
-                                    <Route path="/5" component={Register}/>
-                                    <Route path="/6" component={Login}/>
+                                    <Route path="/register" component={Register}/>
+                                    <Route path="/login" component={Login}/>
                                     <Route path="/7" component={Constructing}/>
-                                    <Route path="/redirect" component={RegisterSuccess}/>
+                                    <Route path="/redirectLogin" component={LoginSuccess}/>
+                                    <Route path="/redirectRegister" component={RegisterSuccess}/>
                                 </div>
                                 {/*<div className="col-md-3">*/}
                                 {/*</div>*/}
                             </div>
                         </div>
-                    </Router>
+                    </HashRouter>
                 </div>
 
                 <div className="footer">
