@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {Grid, Row } from 'react-bootstrap';
 import $ from 'jquery';
 import Validator from '../Components/Validator';
-
+import passwordHash from 'password-hash';
 
 export default class Register extends Component {
     constructor(props){
@@ -10,6 +10,7 @@ export default class Register extends Component {
         this.email = "";
         this.firstName = "";
         this.lastName = "";
+        this.hashedPsd = "";
         this.psd = "";
         this.psdRepeat = "";
         this.emailPassed = false;
@@ -54,7 +55,10 @@ export default class Register extends Component {
     };
 
     handleSubmit = () => {
-        if(this.state.email && this.state.firstName && this.state.lastName && this.state.psd && this.state.psdRepeat) this.ajax();
+        if(this.state.email && this.state.firstName && this.state.lastName && this.state.psd && this.state.psdRepeat) {
+            this.hashedPsd = passwordHash.generate(this.psd);
+            this.ajax();
+        }
         else {
             this.setState({
                 err:true,
@@ -110,15 +114,19 @@ export default class Register extends Component {
     };
 
     ajax = () => {
-        let url = "http://www.future4me.net/src/controller/registerController.php?email=" + this.email + "&psd=" + this.psd + "&firstName=" + this.firstName + "&lastName=" + this.lastName;
+        let url = "http://www.future4me.net/src/controller/registerController.php?email=" + this.email + "&psd=" + this.hashedPsd + "&firstName=" + this.firstName + "&lastName=" + this.lastName;
         $.ajax({
             url: url,
             type:'POST',
             dataType: 'JSON',
             cache: false,
             success: function(data){
-                alert(JSON.stringify(data))
-            },
+                if(data.success){
+                    window.location = "./";
+                } else {
+                    this.setState({err:true,errMsg:data.msg})
+                }
+            }.bind(this),
             error: function(xhr,err){
                 console.log(xhr);
                 console.log(err);
