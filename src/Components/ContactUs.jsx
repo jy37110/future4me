@@ -13,7 +13,7 @@ export default class ContactUs extends Component{
                         <h4 style={{color:'grey', marginBottom:20}}>商务洽谈 · 战略合作</h4>
                     </Row>
                     <Row>
-                        <Col xs={6} md={3}>
+                        <Col xs={3} md={3}>
                             <div style={{textAlign:'left'}}>
                                <span>
                                    <p style={{fontWeight:'bold'}}>业务咨询</p>
@@ -25,7 +25,7 @@ export default class ContactUs extends Component{
                                 </span>
                             </div>
                         </Col>
-                        <Col xs={6} md={5}>
+                        <Col xs={5} md={5}>
                             <div style={{textAlign:'left'}}>
                                <span>
                                    <p style={{fontWeight:'bold'}}>公司地址</p>
@@ -35,7 +35,7 @@ export default class ContactUs extends Component{
                                 </span>
                             </div>
                         </Col>
-                        <Col xs={6} md={4}>
+                        <Col xs={4} md={4}>
                             <div style={{textAlign:'left',marginLeft:'10%'}}>
                                <span>
                                    <form action="#" method="post">

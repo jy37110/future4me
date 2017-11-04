@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {Grid, Row } from 'react-bootstrap';
 import $ from 'jquery';
-//import passwordHash from 'password-hash';
 
 export default class Login extends Component {
     constructor(props){
@@ -30,7 +29,7 @@ export default class Login extends Component {
     };
 
     handleRegisterClick = () => {
-        window.location = "/register"
+        window.location = "#/register"
     };
 
     handleForgetPasswordClick = () => {
@@ -46,6 +45,7 @@ export default class Login extends Component {
             cache: false,
             success: function(data) {
                 if(data.success){
+                    this.props.loginStateHandler(true,data.user);
                     window.location = "#/redirectLogin";
                 } else {
                     this.setState({err:true,errMsg:data.msg});

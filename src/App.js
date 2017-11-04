@@ -16,28 +16,31 @@ class App extends Component {
         super(props);
         this.state = {
             login:false,
+            currentUser:"",
         }
     }
 
-    onUserStateChange = (userState) => {
-        this.setState({login:userState});
-        // alert("userState: " + userState + "\nstate: " + this.state.login);
+    // handleTest = () => {
+    //     alert(JSON.stringify(this.state));
+    // };
+
+    onUserStateChange = (userState, user) => {
+        this.setState({login:userState, currentUser:user});
+        //alert("userState: " + userState + "\nstate: " + this.state.login);
     };
 
-    test = () => {
-        alert("state.login: " + this.state.login);
-    };
 
     render() {
+        const LoginPage = (props) => {return(<Login loginStateHandler={this.onUserStateChange.bind(this)}{...props}/>)};
         return (
             <div className="App">
                 <div>
                     {/*<Router history={createBrowserHistory()}>*/}
                     <HashRouter history={createHashHistory()}>
 
-                        <div>
-                            <NavigationBar userLoggedIn={this.state.login} test={this.test} loginStateHandler={this.onUserStateChange}/>
-                            <div className="row">
+                        <div style={{width:"100%"}}>
+                            <NavigationBar userLoggedIn={this.state.login} currentUser={this.state.currentUser} loginStateHandler={this.onUserStateChange}/>
+                            <div className="row" style={{width:'100%'}}>
                                 {/*<div className="col-md-3">*/}
                                 {/*</div>*/}
                                 <div>
@@ -48,7 +51,7 @@ class App extends Component {
                                     <Route path="/3" component={Constructing}/>
                                     <Route path="/4" component={Constructing}/>
                                     <Route path="/register" component={Register}/>
-                                    <Route path="/login" component={Login}/>
+                                    <Route path="/login" component={LoginPage}/>
                                     <Route path="/7" component={Constructing}/>
                                     <Route path="/redirectLogin" component={LoginSuccess}/>
                                     <Route path="/redirectRegister" component={RegisterSuccess}/>
@@ -61,7 +64,7 @@ class App extends Component {
                 </div>
 
                 <div className="footer">
-
+                    {/*<button onClick={this.handleTest}>Test Button</button>*/}
                 </div>
             </div>
         );

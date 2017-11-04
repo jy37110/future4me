@@ -11,7 +11,7 @@ export default class Advantage extends Component{
 
     render(){
         return(
-            <div className='MainBusinessContainer' style={{display:'flex',justifyContent:'center',backgroundColor:'rgb(240,240,240)',marginTop:30,paddingBottom:30}}>
+            <div className='MainBusinessContainer' style={{width:'100%',display:'flex',justifyContent:'center',backgroundColor:'rgb(240,240,240)',marginTop:30,paddingBottom:30}}>
                 <Grid>
                     <Row>
                         <h2 style={{marginBottom:20}}>马丁优势</h2>

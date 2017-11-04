@@ -21,39 +21,35 @@ class NavigationBar extends Component{
 
     };
 
-    register = () => {
-        this.props.test();
+    handleTest = () => {
+        //alert("this.props.userloggedin: " + this.props.userLoggedIn + "\n this.props.user: " + JSON.stringify(this.props.currentUser));
+    };
+
+    handleLogout = () => {
+        this.props.loginStateHandler(false,"");
+        window.location = "./";
     };
 
     render(){
-        // const signOutButton =
-        //     <NavItem>
-        //         <Button bsStyle="info" className="navbar-btn"
-        //                 onClick={() => {
-        //                     this.props.loginStateHandler(false);
-        //                     //this.navigate('/');
-        //                 }}><Glyphicon glyph="log-out"/> Sign Out </Button>
-        //     </NavItem>;
-        //
-        // const signInButton =
-        //     <NavItem>
-        //         <ButtonToolbar>
-        //             <Button bsStyle="danger" className="navbar-btn"
-        //                     onClick={this.register}><Glyphicon glyph="user"/> Register </Button>
-        //             <Button bsStyle="info" className="navbar-btn"
-        //                     onClick={() => {
-        //                         //this.navigate('/');
-        //                         this.props.loginStateHandler(true);
-        //                     }}><Glyphicon glyph="log-in"/> Sign In</Button>
-        //         </ButtonToolbar>
-        //     </NavItem>;
+        const signInButton =
+            <NavItem eventKey={"login"} href="#">
+                <span className="NavItem">登陆</span>
+            </NavItem>;
+        const signOutButton =
+            <NavItem eventKey={""} href="#">
+                <span className="NavItem" onClick={this.handleLogout}>注销</span>
+            </NavItem>;
+        const userName =
+            <NavItem eventKey={""} href="#">
+                <span className="NavItem">欢迎回来 {this.props.currentUser.firstname}</span>
+            </NavItem>;
 
         return(
             <div>
                 <Navbar inverse className="NavBar" style={{marginBottom:0}}>
                     <Navbar.Header>
                         <Navbar.Brand>
-                            <a className="NavItem" href="/">Home Logo</a>
+                            <a className="NavItem" href="/#">Home Logo</a>
                             {/*<Link to="/login">*/}
                                 {/*<span className="NavItem">Home Logo</span>*/}
                             {/*</Link>*/}
@@ -68,8 +64,8 @@ class NavigationBar extends Component{
                             <NavItem eventKey={2}>
                                 <span className="NavItem">Link2</span>
                             </NavItem>
-                            <NavItem eventKey={3}>
-                                <span className="NavItem">Link3</span>
+                            <NavItem eventKey={""}>
+                                <span className="NavItem" onClick={this.handleTest}>Test Link</span>
                             </NavItem>
                             <NavItem eventKey={4}>
                                 <span className="NavItem">Link4</span>
@@ -80,14 +76,16 @@ class NavigationBar extends Component{
                             <NavItem eventKey={"register"} href="#">
                                 <span className="NavItem">注册</span>
                             </NavItem>
-                            <NavItem eventKey={"login"} href="#">
-                                <span className="NavItem">登陆</span>
-                            </NavItem>
+                            {/*<NavItem eventKey={"login"} href="#">*/}
+                                {/*<span className="NavItem">登陆</span>*/}
+                            {/*</NavItem>*/}
+                            {this.props.userLoggedIn ? signOutButton : signInButton}
                             <NavDropdown eventKey={7} className="NavItem" title="联系我们" id="basic-nav-dropdown">
                                 <MenuItem eventKey={7.1}>400-991-5791</MenuItem>
                                 <MenuItem eventKey={7.2}>400-991-5792</MenuItem>
                                 <MenuItem eventKey={7.3}>在线咨询</MenuItem>
                             </NavDropdown>
+                            {this.props.userLoggedIn ? userName : null}
                         </Nav>
                         {/*<Nav pullRight>*/}
                             {/*{*/}

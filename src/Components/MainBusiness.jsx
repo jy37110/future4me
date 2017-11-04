@@ -16,7 +16,7 @@ export default class MainBusiness extends Component{
                         <h2 style={{marginBottom:20}}>主营业务</h2>
                     </Row>
                     <Row>
-                        <Col xs={6} md={4}>
+                        <Col xs={4} md={4}>
                             <span style={{width:290,height:168,padding:0,display:'block',margin:'0 auto'}}>
                                 <img src="http://via.placeholder.com/290x168" alt="290X168"/>
                                 <div style={{backgroundColor:'rgb(240,240,240)',height:50}}>
@@ -25,7 +25,7 @@ export default class MainBusiness extends Component{
                             </span>
                         </Col>
 
-                        <Col xs={6} md={4}>
+                        <Col xs={4} md={4}>
                             <span style={{width:290,height:168,padding:0,display:'block',margin:'0 auto'}}>
                                 <img src="http://via.placeholder.com/290x168" alt="290X168"/>
                                 <div style={{backgroundColor:'rgb(240,240,240)',height:50}}>
@@ -34,7 +34,7 @@ export default class MainBusiness extends Component{
                             </span>
                         </Col>
 
-                        <Col xs={6} md={4}>
+                        <Col xs={4} md={4}>
                             <span style={{width:290,height:168,padding:0,display:'block',margin:'0 auto'}}>
                                 <img src="http://via.placeholder.com/290x168" alt="290X168"/>
                                 <div style={{backgroundColor:'rgb(240,240,240)',height:50}}>
