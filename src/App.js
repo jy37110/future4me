@@ -8,8 +8,9 @@ import NavigationBar from './Components/NavigationBar';
 import Constructing from './Pages/Constructing';
 import Register from './Pages/Register';
 import Login from './Pages/Login';
-import RegisterSuccess from './Pages/RegisterSuccess';
-import LoginSuccess from "./Pages/LoginSuccess";
+import ForgetPassword from "./Pages/ForgetPassword";
+import ResetPassword from "./Pages/ResetPassword";
+import RedirectPage from "./Pages/RedirectPage";
 
 class App extends Component {
     constructor(props){
@@ -53,8 +54,9 @@ class App extends Component {
                                     <Route path="/register" component={Register}/>
                                     <Route path="/login" component={LoginPage}/>
                                     <Route path="/7" component={Constructing}/>
-                                    <Route path="/redirectLogin" component={LoginSuccess}/>
-                                    <Route path="/redirectRegister" component={RegisterSuccess}/>
+                                    <Route path="/forget" component={ForgetPassword}/>
+                                    <Route path="/resetPassword/:id;:psd" component={ResetPassword}/>
+                                    <Route path="/redirect/:type" component={RedirectPage}/>
                                 </div>
                                 {/*<div className="col-md-3">*/}
                                 {/*</div>*/}

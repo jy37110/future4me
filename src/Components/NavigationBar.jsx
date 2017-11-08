@@ -27,7 +27,7 @@ class NavigationBar extends Component{
 
     handleLogout = () => {
         this.props.loginStateHandler(false,"");
-        window.location = "./";
+        //window.location = "#/redirect/LogoutSuccess";
     };
 
     render(){
@@ -36,7 +36,7 @@ class NavigationBar extends Component{
                 <span className="NavItem">登陆</span>
             </NavItem>;
         const signOutButton =
-            <NavItem eventKey={""} href="#">
+            <NavItem eventKey={"redirect/LogoutSuccess"} href="#">
                 <span className="NavItem" onClick={this.handleLogout}>注销</span>
             </NavItem>;
         const userName =
@@ -64,7 +64,7 @@ class NavigationBar extends Component{
                             <NavItem eventKey={2}>
                                 <span className="NavItem">Link2</span>
                             </NavItem>
-                            <NavItem eventKey={""}>
+                            <NavItem eventKey={"redirect/ResetPasswordSuccess"}>
                                 <span className="NavItem" onClick={this.handleTest}>Test Link</span>
                             </NavItem>
                             <NavItem eventKey={4}>

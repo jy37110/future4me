@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import {Grid, Row } from 'react-bootstrap';
 import $ from 'jquery';
-import Validator from '../Components/Validator';
+import Validator from '../Module/Validator';
+import ServerInfo from '../Module/ServerInfo';
 //import passwordHash from 'password-hash';
 
 export default class Register extends Component {
@@ -111,11 +112,10 @@ export default class Register extends Component {
 
         if(this.emailPassed && this.firstNamePassed && this.lastNamePassed && this.psdPassed && this.psdRepeatPassed) this.setState({err:false,errMsg:""});
         else {this.setState({err:true,errMsg:"您有未通过验证的项目"})}
-
     };
 
     ajax = () => {
-        let url = "http://www.future4me.net/src/controller/registerController.php?email=" + this.email + "&psd=" + this.hashedPsd + "&firstName=" + this.firstName + "&lastName=" + this.lastName;
+        let url = ServerInfo.getServerControllerStr() + "registerController.php?email=" + this.email + "&psd=" + this.hashedPsd + "&firstName=" + this.firstName + "&lastName=" + this.lastName;
         $.ajax({
             url: url,
             type:'POST',
@@ -123,7 +123,7 @@ export default class Register extends Component {
             cache: false,
             success: function(data){
                 if(data.success){
-                    window.location = "#/redirectRegister";
+                    window.location = "#/redirect/RegisterSuccess";
                 } else {
                     this.setState({err:true,errMsg:data.msg})
                 }
