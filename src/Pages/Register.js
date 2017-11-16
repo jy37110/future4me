@@ -3,7 +3,7 @@ import {Grid, Row } from 'react-bootstrap';
 import $ from 'jquery';
 import Validator from '../Module/Validator';
 import ServerInfo from '../Module/ServerInfo';
-//import passwordHash from 'password-hash';
+import Loading from '../Components/Loading';
 
 export default class Register extends Component {
     constructor(props){
@@ -11,7 +11,6 @@ export default class Register extends Component {
         this.email = "";
         this.firstName = "";
         this.lastName = "";
-        this.hashedPsd = "";
         this.psd = "";
         this.psdRepeat = "";
         this.emailPassed = false;
@@ -20,6 +19,7 @@ export default class Register extends Component {
         this.psdPassed = false;
         this.psdRepeatPassed = false;
         this.state={
+            loading:false,
             email:false,
             firstName:false,
             lastName:false,
@@ -57,8 +57,7 @@ export default class Register extends Component {
 
     handleSubmit = () => {
         if(this.state.email && this.state.firstName && this.state.lastName && this.state.psd && this.state.psdRepeat) {
-            //this.hashedPsd = passwordHash.generate(this.psd);
-            this.hashedPsd = this.psd;
+            this.setState({loading:true});
             this.ajax();
         }
         else {
@@ -115,7 +114,7 @@ export default class Register extends Component {
     };
 
     ajax = () => {
-        let url = ServerInfo.getServerControllerStr() + "registerController.php?email=" + this.email + "&psd=" + this.hashedPsd + "&firstName=" + this.firstName + "&lastName=" + this.lastName;
+        let url = ServerInfo.getServerControllerStr() + "registerController.php?email=" + this.email + "&psd=" + this.psd + "&firstName=" + this.firstName + "&lastName=" + this.lastName;
         $.ajax({
             url: url,
             type:'POST',
@@ -125,21 +124,22 @@ export default class Register extends Component {
                 if(data.success){
                     window.location = "#/redirect/RegisterSuccess";
                 } else {
-                    this.setState({err:true,errMsg:data.msg})
+                    this.setState({err:true,errMsg:data.msg,loading:false})
                 }
             }.bind(this),
             error: function(xhr,err){
                 console.log(xhr);
                 console.log(err);
-                alert(JSON.stringify(xhr))
-            },
+                alert("err:" + JSON.stringify(xhr));
+                this.setState({loading:false})
+            }.bind(this),
         });
     };
 
     render() {
-        const validationPassIcon = <span className="glyphicon glyphicon-ok-circle" style={{fontSize:30,color:'green'}}></span>
-        const validationDenialIcon = <span className="glyphicon glyphicon-remove-circle" style={{fontSize:30,color:'red'}}></span>
-        const errMsg = <p style={{color:'red'}}>{this.state.errMsg}</p>
+        const validationPassIcon = <span className="glyphicon glyphicon-ok-circle" style={{fontSize:30,color:'green'}}></span>;
+        const validationDenialIcon = <span className="glyphicon glyphicon-remove-circle" style={{fontSize:30,color:'red'}}></span>;
+        const errMsg = <p style={{color:'red'}}>{this.state.errMsg}</p>;
 
         return (
             <Grid>
@@ -179,7 +179,8 @@ export default class Register extends Component {
                             </Row>
 
                             {this.state.err ? errMsg : null}
-                            <button type="button" className="btn btn-primary" onClick={this.handleSubmit} style={{marginTop:10,marginLeft:0}}>提 交</button>
+                            {this.state.loading ? <Loading/> : null}
+                            <button type="button" className="btn btn-primary" disabled={this.state.loading} onClick={this.handleSubmit} style={{marginTop:10,marginLeft:0}}>提 交</button>
                         </form>
                     </div>
                 </Row>

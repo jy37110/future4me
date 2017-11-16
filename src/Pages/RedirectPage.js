@@ -7,7 +7,6 @@ export default class RedirectPage extends Component {
         this.type = this.props.match.params.type;
         this.msg = "";
         this.url = "/#";
-        console.log(this.props);
         switch(this.type){
             case "LoginSuccess":
                 this.msg = "您已成功登陆，此处省略一万字...";

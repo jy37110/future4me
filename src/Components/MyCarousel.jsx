@@ -4,7 +4,7 @@ import { Carousel, CarouselItem } from 'react-bootstrap';
 export default class MyCarousel extends Component{
     render(){
         return(
-            <div className='CarouselContainer' style={{display:'flex',justifyContent:'center',width:"100%"}}>
+            <div className='CarouselContainer' style={{justifyContent:'center',width:"100%"}}>
                 <Carousel style={{alignItems:'center',width:'100%'}}>
                     {this.props.imageArr.map((item, i) => {
                         return(

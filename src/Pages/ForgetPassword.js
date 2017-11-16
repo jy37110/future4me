@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Grid, Row } from 'react-bootstrap';
 import Validator from '../Module/Validator';
 import ServerInfo from '../Module/ServerInfo';
+import Loading from '../Components/Loading';
 import $ from 'jquery';
 
 export default class ForgetPassword extends Component {
@@ -41,20 +42,19 @@ export default class ForgetPassword extends Component {
                     window.location = "#/redirect/ForgetPasswordRedirect";
                 } else {
                     this.setState({err:true,errMsg:data.msg,loading:false});
-                    console.log(data);
                 }
             }.bind(this),
             error: function(xhr,err){
                 console.log(xhr);
                 console.log(err);
-                alert(JSON.stringify(xhr))
-            },
+                alert("err:" + JSON.stringify(xhr));
+                this.setState({loading:false})
+            }.bind(this),
         });
     };
 
     render() {
         const errMsg = <p style={{color:'red'}}>{this.state.errMsg}</p>;
-        const loading = <p style={{color:'green'}}><span className="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span>Loading...</p>
         return (
             <Grid>
                 <Row>
@@ -62,7 +62,7 @@ export default class ForgetPassword extends Component {
                         <form action="#" method="post">
                             <p style={{fontWeight:'bold',marginTop:20}}>请输入用于找回密码的Email地址</p>
                             <input className="form-control" type="email" onChange={this.handleEmailChange} style={{width:"90%",marginBottom:10}}/>
-                            {this.state.loading ? loading : null}
+                            {this.state.loading ? <Loading/> : null}
                             {this.state.err ? errMsg : null}
                             <button type="button" className="btn btn-primary" disabled={this.state.loading} onClick={this.handleSubmit}>找回密码</button>
                         </form>

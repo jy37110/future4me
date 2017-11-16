@@ -29,21 +29,11 @@ class Home extends Component {
                     height={500}
                     imageArr={this.imageArr}
                 />
-                <div className="row">
-                    <AboutNZ contentObjArr={this.aboutNZInfo}/>
-                </div>
-                <div className="row">
-                    <MainBusiness/>
-                </div>
-                <div className="row">
-                    <Advantage/>
-                </div>
-                <div className="row">
-                    <VideoPlayer/>
-                </div>
-                <div className="row">
-                    <ContactUs/>
-                </div>
+                <AboutNZ contentObjArr={this.aboutNZInfo}/>
+                <MainBusiness/>
+                <Advantage/>
+                <VideoPlayer/>
+                <ContactUs/>
             </div>
         );
     }

@@ -35,15 +35,10 @@ class App extends Component {
         const LoginPage = (props) => {return(<Login loginStateHandler={this.onUserStateChange.bind(this)}{...props}/>)};
         return (
             <div className="App">
-                <div>
                     {/*<Router history={createBrowserHistory()}>*/}
                     <HashRouter history={createHashHistory()}>
-
-                        <div style={{width:"100%"}}>
+                        <div className="routerContainer" style={{width:"100%"}}>
                             <NavigationBar userLoggedIn={this.state.login} currentUser={this.state.currentUser} loginStateHandler={this.onUserStateChange}/>
-                            <div className="row" style={{width:'100%'}}>
-                                {/*<div className="col-md-3">*/}
-                                {/*</div>*/}
                                 <div>
                                     <Route exact path="/" component={Home}/>
                                     {/*<Route path="/about" component={About}/>*/}
@@ -60,10 +55,8 @@ class App extends Component {
                                 </div>
                                 {/*<div className="col-md-3">*/}
                                 {/*</div>*/}
-                            </div>
                         </div>
                     </HashRouter>
-                </div>
 
                 <div className="footer">
                     {/*<button onClick={this.handleTest}>Test Button</button>*/}

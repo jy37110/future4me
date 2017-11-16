@@ -14,14 +14,15 @@ export default class ContactUs extends Component{
                     </Row>
                     <Row>
                         <Col xs={3} md={3}>
-                            <div style={{textAlign:'left'}}>
+                            <div style={{textAlign:'left', marginLeft:40}}>
                                <span>
                                    <p style={{fontWeight:'bold'}}>业务咨询</p>
                                    <p>电话：+64 9 3929218</p>
                                    <p>邮箱： support@strategy4me.com</p>
                                    <p>微信： </p>
-                                   <img src={"/Images/footer_1.png"} style={{width:'50%'}} alt="570X404"/>
-
+                                   <div style={{width:150,height:150}}>
+                                       <img src={"/Images/footer_1.png"} style={{width:'100%',height:'100%'}} alt="570X404"/>
+                                   </div>
                                 </span>
                             </div>
                         </Col>
@@ -45,7 +46,7 @@ export default class ContactUs extends Component{
                                        <p>邮箱</p>
                                        <input className="form-control" type="email" style={{width:"70%",marginBottom:10}}/>
                                        <p>留言内容</p>
-                                       <textarea className="form-control" rows='4' style={{width:"100%",marginBottom:15}}/>
+                                       <textarea className="form-control" rows='4' style={{width:"80%",marginBottom:15}}/>
                                        <button type="button" className="btn btn-primary">提交</button>
                                    </form>
 
