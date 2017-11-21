@@ -18,7 +18,7 @@ export default class RedirectPage extends Component {
                 this.msg = "您的密码重设请求已成功发送，请登陆您的邮箱并按提示重新设置您的密码。此处省略一万字...";
                 break;
             case "ResetPasswordSuccess":
-                this.msg = "您的密码已重置成功，请使用新的密码进行登陆。此处省略一万字";
+                this.msg = "您的密码已重置成功，请使用新的密码进行登陆。此处省略十万字";
                 this.url = "/#/login";
                 break;
             case "LogoutSuccess":
